@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div>
+{% if post_list %}
+    <ul class="uk-list uk-list-divider">
+        {% for post in post_list %}
+        <li><a href="/content/{{ post.id }}/">{{ post.title }}</a>{{ post.created_at }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p></p>
+{% endif %}
+</div>
+
+    <form action="/post" method="GET">
+        <button class="uk-button uk-button-default">POST</button>
+    </form>
+{% endblock %}
